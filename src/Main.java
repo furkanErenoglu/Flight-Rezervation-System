@@ -57,12 +57,12 @@ public class Main {
 
 
 
-        flightManager.buyTicket(user1,flightManager.getFlight("79834328798"),"THY-1","1234567892");
-        flightManager.buyTicket(user2,flightManager.getFlight("16934568798"),"THY-2","1234567879");
+        flightManager.buyTicket(user1,"79834328798","THY-1","1234567892");
+        flightManager.buyTicket(user2,"16934568798","THY-2","1234567879");
 
 
 
-
+        passengerManager.getAllPassangers();
 
 
 

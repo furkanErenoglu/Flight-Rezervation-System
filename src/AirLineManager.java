@@ -19,13 +19,16 @@ public class AirLineManager {
 
 
     public AirLine getAirLineByID(String id){
+        AirLine airline = null;
         for(AirLine airLine : airLines){
+
             if (airLine.getId().equals(id)){
                 System.out.println("AirLines company is "+ airLine.getName());
-                return airLine;
+                airline = airLine;
+                break;
             }
         }
-        return null;
+        return airline;
     }
 
 

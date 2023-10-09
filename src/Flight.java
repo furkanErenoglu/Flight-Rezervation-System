@@ -13,7 +13,7 @@ public class Flight {
     private LocalDateTime destinationTime;
 
 
-    Flight(String id, int capacity, String departurePoint, String destination, LocalDateTime departureTime, LocalDateTime destinationTime ){
+    public Flight(){
         this.id=id;
         this.capacity = capacity;
         this.departurePoint = departurePoint;
@@ -21,12 +21,6 @@ public class Flight {
         this.departureTime= departureTime;
         this.destinationTime=destinationTime;
         this.passengers = new HashSet<>();
-    }
-
-
-    public Flight(){
-        this.passengers = new HashSet<>();
-
     }
 
 
