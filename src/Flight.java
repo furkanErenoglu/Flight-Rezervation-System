@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.time.LocalDateTime;
 public class Flight {
@@ -22,7 +20,13 @@ public class Flight {
         this.destinationTime=destinationTime;
         this.passengers = new HashSet<>();
     }
+    public void addPasseneger(Passenger passenger){
+        this.passengers.add(passenger);
+    }
 
+    public Set<User> getPassengers(){
+        return passengers;
+    }
 
     public String  getId() {
         return id;
@@ -56,7 +60,7 @@ public class Flight {
         this.destination = destination;
     }
 
-    public Set<User> getPassengers() {
+    public Set<User> getPassengers(Passenger newPassenger) {
         return passengers;
     }
 

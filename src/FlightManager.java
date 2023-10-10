@@ -4,10 +4,16 @@ import java.util.*;
 public class FlightManager {
     private AirLineManager airLineManager;
     private PassengerManager passengerManager;
-    private Map<String,Object> flights = new HashMap<>();
+    private Map<String, Flight> flights = new HashMap<>();
+
     public FlightManager(AirLineManager airLineManager, PassengerManager passengerManager){
         this.airLineManager = airLineManager;
         this.passengerManager = passengerManager;
+    }
+
+
+    public Map<String , Flight> getFlights(){
+        return flights;
     }
 
 
@@ -34,8 +40,9 @@ public class FlightManager {
         Flight flight = getFlightById(flightId);
         if (flight!=null){
             if (flight.getCapacity()>0 ){
-                passengerManager.addPassanger(user, seatNumber, passportNumber);
-                flight.getPassengers().add(user);
+                Passenger newPassenger = new Passenger(user, seatNumber, passportNumber);
+                passengerManager.addPassanger(user, flightId, seatNumber, passportNumber);
+                flight.getPassengers().add(newPassenger);
                 flight.setCapacity(flight.getCapacity()-1);
                 System.out.println("Capacity: "+ flight.getCapacity());
 
@@ -44,11 +51,30 @@ public class FlightManager {
     }
 
 
+    public Flight getFlightsListById(String id) {
+        if (flights.containsKey(id)){
+            return (Flight) flights.get(id);
+        }
+        return null;
+    }
+
     public Flight getFlightById(String id){
         if (flights.containsKey(id)){
             return (Flight) flights.get(id);
         }
         return null;
+    }
+
+    public Set<User> getPassengersByFlightId(String id){
+        Set<User> passengerByFlightId = new HashSet<>();
+
+        for (Flight flight: getFlights().values()){
+            if (flight.getId().equals(id)){
+                passengerByFlightId.addAll(flight.getPassengers());
+                System.out.println(flight.getId());
+            }
+        }
+        return passengerByFlightId;
     }
 
 

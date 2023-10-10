@@ -3,8 +3,6 @@ public class Main {
 
         UserManager userManager = new UserManager();
         AirLineManager airLineManager = new AirLineManager();
-        PassengerManager passengerManager = new PassengerManager(airLineManager);
-        FlightManager flightManager = new FlightManager(airLineManager,passengerManager);
 
 
         User user1 = new User();
@@ -50,6 +48,10 @@ public class Main {
         dateDto1.setHour(18);
         dateDto1.setMinute(30);
 
+        PassengerManager passengerManager = new PassengerManager(airLineManager);
+        FlightManager flightManager = new FlightManager(airLineManager,passengerManager);
+
+
 
         flightManager.addFlight("79834328798",300,dateDto1,"Ankara","Istanbul",1);
         flightManager.addFlight("16934568798",11,dateDto1,"Ankara", "Istabul",1);
@@ -64,7 +66,10 @@ public class Main {
 
         passengerManager.getAllPassangers();
 
+        System.out.println(flightManager.getFlights());
 
+        System.out.println(flightManager.getPassengersByFlightId("79834328798"));
+        System.out.println(flightManager.getPassengersByFlightId("16934568798"));
 
     }
 }
