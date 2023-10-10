@@ -16,20 +16,15 @@ public class UserManager {
         System.out.println("User added : "+ user.getFullName());
     }
 
-    public void getUserById(String id){
+    public User getUserById(String id){
         for(User user:users){
             if (user.getId().equals(id)){
                 System.out.println("User: " + user.getFullName());
+                return user;
             }
         }
-
+    return null;
 }
-
-
-
-
-
-
 
 
 }

@@ -6,11 +6,6 @@ public class PassengerManager {
 
 
 
-
-
-
-
-
     public void addPassanger(User user, String  flightId, String seatNumber, String passportNumber){
         Passenger passenger = new Passenger(user, seatNumber, passportNumber);
         passenger.setId(user.getId());
@@ -30,26 +25,10 @@ public class PassengerManager {
     }
 
 
-    public void getAllPassangers(){
-        for (Passenger passenger:passangers){
-            System.out.println(passenger.getFullName());
-        }
+    public List<Passenger> getAllPassangers(){
+        return passangers;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

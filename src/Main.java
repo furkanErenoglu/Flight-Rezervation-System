@@ -5,66 +5,65 @@ public class Main {
         AirLineManager airLineManager = new AirLineManager();
 
 
-        User user1 = new User();
-        user1.setId("27878769194");
-        user1.setFullName("Selin Samir");
-        user1.setEmail("user1@gmail.com");
-        user1.setAge(26);
+        User user = new User();
+        user.setId("27878769194");
+        user.setFullName("Selin Samir");
+        user.setEmail("user1@gmail.com");
+        user.setAge(26);
 
-        userManager.addUser(user1);
+        userManager.addUser(user);
 
         userManager.getUserById("27878769194");
 
-        User user2 = new User();
-        user2.setId("27878859194");
-        user2.setFullName("Adam Annhold");
-        user2.setEmail("user2@gmail.com");
-        user2.setAge(22);
+        User newUser = new User();
+        newUser.setId("27878859194");
+        newUser.setFullName("Adam Annhold");
+        newUser.setEmail("user2@gmail.com");
+        newUser.setAge(22);
 
-        userManager.addUser(user2);
-
-
-        AirLine airLine1 = new AirLine();
-        airLine1.setId("16934568798");
-        airLine1.setName("Pegasus");
+        userManager.addUser(newUser);
 
 
-        airLineManager.addAirLine(airLine1);
+        AirLine airLine = new AirLine();
+        airLine.setId("16934568798");
+        airLine.setName("Pegasus");
+
+
+        airLineManager.addAirLine(airLine);
 
         airLineManager.getAirLineByID("16934568798");
 
 
-        AirLine airLine2 = new AirLine();
-        airLine2.setId("79834328798");
-        airLine2.setName("Türk Hava Yolları");
+        AirLine newAirLine = new AirLine();
+        newAirLine.setId("79834328798");
+        newAirLine.setName("Türk Hava Yolları");
 
 
-        airLineManager.addAirLine(airLine2);
+        airLineManager.addAirLine(newAirLine);
 
-        DateDto dateDto1 = new DateDto();
-        dateDto1.setYear(2023);
-        dateDto1.setMonth(11);
-        dateDto1.setDay(25);
-        dateDto1.setHour(18);
-        dateDto1.setMinute(30);
+        DateDto date = new DateDto();
+        date.setYear(2023);
+        date.setMonth(11);
+        date.setDay(25);
+        date.setHour(18);
+        date.setMinute(30);
 
         PassengerManager passengerManager = new PassengerManager(airLineManager);
         FlightManager flightManager = new FlightManager(airLineManager,passengerManager);
 
 
 
-        flightManager.addFlight("79834328798",300,dateDto1,"Ankara","Istanbul",1);
-        flightManager.addFlight("16934568798",11,dateDto1,"Ankara", "Istabul",1);
+        flightManager.addFlight("79834328798",300,date,"Ankara","Istanbul",1);
+        flightManager.addFlight("16934568798",11,date,"Ankara", "Istabul",1);
 
 
 
 
-        flightManager.buyTicket(user1,"79834328798","THY-1","1234567892");
-        flightManager.buyTicket(user2,"16934568798","THY-2","1234567879");
+        flightManager.buyTicket(user,"79834328798","THY-1","1234567892");
+        flightManager.buyTicket(newUser,"16934568798","THY-2","1234567879");
 
 
-
-        passengerManager.getAllPassangers();
+        System.out.println(passengerManager.getAllPassangers());
 
         System.out.println(flightManager.getFlights());
 

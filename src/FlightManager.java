@@ -51,11 +51,8 @@ public class FlightManager {
     }
 
 
-    public Flight getFlightsListById(String id) {
-        if (flights.containsKey(id)){
-            return (Flight) flights.get(id);
-        }
-        return null;
+    public Map<String, Flight> getFlightsListById(String id) {
+            return flights;
     }
 
     public Flight getFlightById(String id){
@@ -66,15 +63,15 @@ public class FlightManager {
     }
 
     public Set<User> getPassengersByFlightId(String id){
-        Set<User> passengerByFlightId = new HashSet<>();
+        Set<User> passengers = new HashSet<>();
 
         for (Flight flight: getFlights().values()){
             if (flight.getId().equals(id)){
-                passengerByFlightId.addAll(flight.getPassengers());
+                passengers.addAll(flight.getPassengers());
                 System.out.println(flight.getId());
             }
         }
-        return passengerByFlightId;
+        return passengers;
     }
 
 
